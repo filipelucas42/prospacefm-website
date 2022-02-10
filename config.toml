@@ -1,0 +1,23 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "ProspaceFM"
+enableEmoji = true
+uglyurls = true
+
+theme = "prospace"
+
+[markup.goldmark.renderer]
+unsafe= true
+[params]
+color = "#5da87e"
+#color = "black"
+[params.homepage]
+hero = "ProspaceFM"
+hero-title = "as suas infraestruturas"
+hero-subtitle = "NOSSA RESPONSABILIDADE"
+[params.footer]
+company = "PROSAPCE FM"
+prospace = "A PROSPACE FM é uma sociedade angolana especializada na concepção de soluções e na implementação de serviços integrados de facility management."
+member = [["➡️ APMI", "https://www.apmi.pt"]]
+presence = ["⭐ Portugal", "⭐ Angola", "⭐ Moçambique", "⭐ São Tomé e Príncipe"]
+contacts =[ "✉️ info@prospacefm.com", "📞 +244 222 719 615", "🏢 Av. 4 de Fevereiro, 48, Piso 5 Luanda, Angola", ""]
