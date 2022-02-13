@@ -1,0 +1,11 @@
+{{define "main"}}
+<div class="container pb-1 about" style="">
+    {{$image := .Resources.GetMatch "*"}}
+    <div>
+        <img src="{{$image.Permalink}}" alt="" style="">
+
+    </div>
+
+    <div>{{.Content}}</div>
+</div>
+{{end}}

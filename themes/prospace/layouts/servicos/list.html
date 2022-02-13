@@ -1,0 +1,10 @@
+{{define "main"}}
+<div class="container">
+    {{range where .Site.Pages "Section" "servicos"}}
+        {{.Title}}
+    {{end}}
+    {{range where .Site.Pages "Section" "servicos"}}
+        {{.Title}}
+    {{end}}
+</div>
+{{end}}

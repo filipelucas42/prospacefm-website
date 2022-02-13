@@ -1,0 +1,63 @@
+{{define "main"}}
+<div class="container pb-3">
+    <h2 class="text-primary mt-2">{{.Title}}</h2>
+    <div class=" mt-3 gy-2" id="images-container">
+        {{$images := .Resources.Match "images/*"}}
+        {{range $images}}
+        {{$img := .Fit "1200x1200" }}
+        <div class="img">
+            <img class="image" src="{{$img.RelPermalink}}" alt="unavailable">
+        </div>
+        {{ end }}
+    </div>
+</div>
+<div id="image-viewer">
+    <span class="close">&times;</span>
+    <span class="right-arrow" id="right-arrow">&gt;</span>
+    <span class="left-arrow" id="left-arrow">&lt;</span>
+    <img class="modal-content" id="full-image" style="position:fixed;max-height:90%;width:auto; height:auto;max-width: 75%;top:50% !important;transform:translate(-50%,-50%);left:50% !important;">
+</div>
+<script>
+    let image_index = 0;
+    let images = document.getElementsByClassName("image");
+    document.getElementsByClassName("close")[0].addEventListener("click", ()=>{
+        document.getElementById("image-viewer").style.display="none";
+    });
+    document.getElementById("left-arrow").addEventListener("click", imageLeftArrow);
+    document.getElementById("right-arrow").addEventListener("click", imageRightArrow);
+    document.addEventListener("keydown", (e)=>{
+        if(e.keyCode === 37){
+            imageLeftArrow();
+        }else if(e.keyCode === 39){
+            imageRightArrow();
+        } else if(e.keyCode === 27){
+            document.getElementById("image-viewer").style.display="none";
+        }
+    });
+    for(image of images){
+        image.addEventListener("click", (e)=>{
+            let fullImage = document.getElementById("full-image").setAttribute("src", e.srcElement.getAttribute("src"));
+            document.getElementById("image-viewer").style.display="block";
+            image_index = Array.from(e.srcElement.parentNode.parentNode.children).indexOf(e.srcElement.parentNode);
+        });
+    }
+
+    function imageRightArrow(){
+        if(image_index + 1 === document.getElementById("images-container").children.length){
+            return;
+        } else {
+            image_index++;
+        }
+        let fullImage = document.getElementById("full-image").setAttribute("src", document.getElementById("images-container").children[image_index].children[0].getAttribute("src"));
+    }
+
+    function imageLeftArrow(){
+        if(image_index - 1 < 0){
+            return;
+        } else {
+            image_index--;
+        }
+        let fullImage = document.getElementById("full-image").setAttribute("src", document.getElementById("images-container").children[image_index].children[0].getAttribute("src"));
+    }
+    </script>
+{{end}}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ $sass := resources.Get "main.scss" }}
+    {{ $css := $sass | resources.ToCSS | resources.PostCSS (dict "config" "postcss.config.js" "noMap" true)}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link href="{{$css.Permalink}}" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lato">
+    <style>
+        :root {
+            --color: {{.Param "color"}}
+        }
+
+        .recruting a {
+            color: var(--color)
+        }
+    </style>
+    <title>{{.Site.Param "footer.company"}} - {{.Title}}</title>
+</head>
+<body style="position: relative;">
+    {{partial "header" . }}
+    {{block "main" .}}
+    {{end}}
+    {{partial "footer" .}}
+    <script src="/js/main.js"></script>
+</body>
+</html>

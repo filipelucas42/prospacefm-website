@@ -1,0 +1,48 @@
+{{define "main"}}
+<div class="container-fluid" style="position:relative;background-size:cover;background-image:url('/images/hero.jpg');min-height:80vh;box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.2);color:white;"><h1 style="position:absolute;background-color:transparent;top:20%;left:50%;text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);font-weight: 1000;transform:translateX(-50%);font-size:calc(60px + 1.5vw);">{{.Site.Param "homepage.hero"}}</h1><h1 style="position:absolute;background-color:transparent;top:55%;left:10%;text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);font-weight: 700;">{{.Site.Param "homepage.hero-title"}}<br><br> {{.Site.Param "homepage.hero-subtitle"}}</h1></div>
+<div class="container-fluid" style="margin-top:30px;background-color:rgb(236, 240, 241);">
+    <div class="container">
+        <h2 style="text-align: center;background-color:rgb(236, 240, 241);">Serviços</h2>
+        <hr>
+        <div class="container-fluid services pt-1 pb-1" style="background-color:rgb(236, 240, 241);">
+            {{range where .Site.RegularPages "Section" "servicos"}}
+                <div class="p-1" style="position:relative;min-height: 135px;">
+                    <h3 class="text-center" style="line-height: normal;font-weight: 315;">{{.Title}}</h3>
+                    <a class="margin-center btn btn-primary" style="position:absolute;bottom:8px;left:0; right: 0;" href="{{.Permalink}}">+ Info</a>
+                </div>
+            {{end}}
+        </div>
+    </div>
+</div>
+{{if .Site.Param "partners"}}
+<div class="container-fluid pt-2">
+    <h2 style="text-align: center;">Parceiros</h2>
+    <hr>
+    <div class="container" style="display:flex;flex-wrap: wrap;justify-content: center;padding-bottom:40px;">
+        <img src="/images/partners/deti_logo.png" alt="" style="margin:10px;">
+        <img src="/images/partners/host.png" alt="" style="margin:10px;">
+    </div>
+</div>
+{{end}}
+{{if .Site.Param "facility-managment"}}
+<div class="container-fluid" style="margin-top:30px;background-color:rgb(236, 240, 241);">
+    <div class="container pb-1 facility-managment-container">
+        <h2 style="text-align: center;background-color:rgb(236, 240, 241);">FACILITY MANAGMENT</h2>
+        <hr>
+        <div class="facility-managment mt-2">
+            <div>
+                <img src="/images/facility-managment.jpg" alt="" style="width:100%;">
+        
+            </div>
+            {{$section := .Site.GetPage "contacto"}}
+
+            <div class="pb-2">
+                <p>{{.Content}}</p>
+                <a href="{{$section.Permalink}}" class="btn">Contacte-nos</a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{{end}}
+{{end}}

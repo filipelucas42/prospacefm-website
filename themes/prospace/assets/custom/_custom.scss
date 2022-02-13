@@ -1,0 +1,145 @@
+.services {
+    display:grid;
+    background-color:rgb(236, 240, 241);
+    grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+    grid-gap: 10px;
+    background-color: rgb(55, 60, 64);
+}
+
+.about {
+    div {
+        padding:1rem;
+    }
+    p, li {
+        font-size: 14px;
+    }
+    p {
+        margin-top:1rem;
+        margin-bottom:1rem;
+    }
+    li {
+        margin-left: 1rem;
+    }
+
+    ul {
+        list-style-type: disc;
+        width:100%;
+    }
+}
+.recruting {
+    div {
+        padding:1rem;
+    }
+    p, li {
+        font-size: 14px;
+    }
+    p {
+        margin-top:1rem;
+        margin-bottom:1rem;
+    }
+    li {
+        margin-left: 1rem;
+    }
+
+    ul {
+        list-style-type: disc;
+        width:100%;
+    }
+    img {
+        width: 100%;
+    }
+}
+.service-text {
+    padding-bottom:4rem;
+    ul {
+        list-style-type: disc;
+        margin-left: 2rem;
+    }
+    h1 {
+        margin-top:3rem;
+        font-weight: 300;
+        font-size: 24px;
+        margin-bottom: 3rem;
+    }
+    h2 {
+        text-rendering: optimizelegibility;
+        font-weight: 300;
+        font-size: 17.5px;
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }  
+}
+
+.service-item {
+    &:hover {
+        background-color: #eee;
+    }
+    &:hover a{
+        background-color: #eee;
+    }
+
+    &:hover li{
+        background-color: #eee;
+    }
+    padding:0.3rem;
+}
+
+@media screen and (max-width: 996px){
+    .about {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .facility-managment {
+        display:flex;
+        flex-direction: column;
+    }
+}
+.facility-managment {
+    display:flex;
+    p {
+        margin-bottom:1rem;
+    }
+    background-color:rgb(236, 240, 241);
+    * {
+        background-color:rgb(236, 240, 241);
+    }
+}
+
+.facility-managment-container {
+    background-color:rgb(236, 240, 241);
+
+}
+@media screen and (min-width: 996.1px){
+    .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .about {
+        img {
+            height: 80%;
+            max-width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .service-text {
+        width:60%;
+    }
+
+    .facility-managment {
+        display:flex;
+        :first-child{
+            margin-right: 1rem;
+        }
+    }
+}

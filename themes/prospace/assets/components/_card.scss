@@ -1,0 +1,43 @@
+.card {
+
+    &:hover{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+    img {
+        width:100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .title {
+        font-size: 18px;
+        font-weight: 300;
+        color:rgb(8, 9, 9);
+        position: relative;
+        &:after{
+            content:'';
+            width:50px;
+            background-color:#eee;
+            height: 10px;
+            position: absolute;
+            left:50%;
+            transform: translateX(-50%);
+            bottom:0;
+        }
+    }
+
+    .small-text {
+        color: hsl(0, 0%, 67%);
+        font-size: 14px;
+        padding-left: 0.8rem;
+    }
+}
+
+.cards-container {
+    display:grid;
+    grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+    grid-gap: 2rem;
+}

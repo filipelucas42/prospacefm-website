@@ -1,0 +1,36 @@
+{{define "main"}}
+{{$image := .Resources.GetMatch "image*"}}
+{{$title := .Title}}
+{{$logo := .Resources.GetMatch "logo*"}}
+<div class="container">
+    <div style="display:flex;flex-wrap: wrap;">
+        <div style="width: 60%;min-width: 350px;" class="margin-center">
+            <img src="{{$image.Permalink}}" alt="" style="display:block;width: 100%;margin-bottom:2rem;">
+        </div>
+        <div style="width:100%;flex-basis: 300px;flex-grow: 1;">
+            <ul clas="margin-center" style="list-style: disc;padding-left: 2rem;">
+                {{range where .Site.RegularPages "Section" "servicos"}}
+                <a href="{{.Permalink}}">
+                    <li class="service-item"
+                    
+                {{if eq .Page.Title $title}}
+                style="background-color: #eee;"
+                {{end}}
+                    >{{.Title}}</li>
+                </a>
+ <!--                <li class="service-item"><a 
+                    {{if eq .Page.Title $title}}
+                    style="background-color: #eee;"
+                    {{end}}
+                    href="{{.Permalink}}">{{.Title}}</a></li>   --> 
+                {{end}}
+            </ul>
+        </div>
+
+    </div>
+    <div class="service-text">
+        {{.Content}}
+    </div>
+</div>
+{{end}}
+

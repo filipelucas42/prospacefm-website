@@ -1,0 +1,93 @@
+$white: rgb(245, 245, 245); 
+$grey: #d4d4d4;
+$dark-grey: #a3a3a3;
+$text: #404040;
+$nav-item-color: #8d969d;
+$navbar-background: white;
+$nav-item-hover-color: #404040;
+
+* {
+    margin:0;
+    padding:0;
+    font-family: "Lato";
+    background-color: white;
+}
+
+body {
+    background-color: white;
+    color: $text;
+    width:100%;
+    //overflow-x: hidden !important;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+}
+.container {
+    width: 80%;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.container-fluid {
+    width:100%;
+}
+
+@for $i from 1 through 3 {
+    .p-#{$i} {
+        padding: #{$i}rem;
+    }
+}
+
+@for $i from 1 through 3 {
+    .pt-#{$i} {
+        padding-top: #{$i}rem;
+    }
+}
+
+@for $i from 1 through 3 {
+    .pb-#{$i} {
+        padding-bottom: #{$i}rem;
+    }
+}
+
+@for $i from 1 through 3 {
+    .mt-#{$i} {
+        margin-top: #{$i}rem;
+    }
+}
+
+@for $i from 1 through 3 {
+    .mb-#{$i} {
+        margin-bottom: #{$i}rem;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.margin-auto {
+    margin:auto;
+}
+
+.margin-center {
+    margin-left:auto;
+    margin-right:auto;
+}
+@media screen and (max-width: 996px){
+ 
+}
+
+@media screen and (min-width: 996.1px){
+
+}
+
+@import 'components/all';
+@import 'custom/custom';
+@import 'elements/all';

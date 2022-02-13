@@ -1,0 +1,39 @@
+<nav class="nav mb-2">
+    <div class="nav-bar-brand">
+        <a href="/index.html"><img class="brand" 
+            {{if eq .Page.Section "servicos"}}
+            {{$logo := .Page.Resources.GetMatch "logo*"}}
+                {{if $logo}}
+                src="{{$logo.Permalink}}"
+                {{end}}
+            {{else}}          
+            src="/images/logo.png"
+            {{end}}
+            ></img></a>
+        <div class="nav-burger" onclick="myLib.toggleBurger(this)">
+            <div class="bar1"></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="nav-items-container" id="nav-items-container">
+        <div class="nav-items nav-end">
+            <a href="/index.html" class="nav-item">INÍCIO</a>
+        </div>
+        {{ range .Site.Sections }}
+        {{$title := .Title}}
+            {{if eq .Section "servicos"}}
+                {{range first 1 .RegularPages}}
+                <div class="nav-items">
+                    <a class="nav-item" href="{{ .Permalink }}">{{$title}}</a>
+                </div>
+                {{end}}
+
+            {{else}}
+                <div class="nav-items">
+                    <a class="nav-item" href="{{ .Permalink }}">{{ .Title }}</a>
+                </div>
+            {{end}}
+        {{ end }}
+    </div>
+</nav>

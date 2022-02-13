@@ -1,0 +1,32 @@
+{{define "main"}}
+<div class="container pb-3">
+    <h1 style="font-weight: 300;">Reabilitação de Edifícios</h1>
+    <hr class="mb-2">
+    <div class="cards-container">
+        {{range .Site.Taxonomies.categories.reabilitacao}}
+        {{$image := .Page.Resources.GetMatch "images/*"}}
+        <a href="{{.Page.Permalink}}" class="card">
+            <img src="{{$image.Permalink}}" alt="" srcset="">
+            <p class="title pt-2 text-center pb-1">{{.Title}}</p>
+            <p class="small-text pt-1">{{.Page.Param "address"}}</p>
+            <p class="small-text pb-1">{{.Page.Param "city"}}</p>
+        </a>
+    {{end}}
+    </div>
+</div>
+<div class="container pb-3">
+    <h1 style="font-weight: 300;">Escritório Avenida de Liberdade</h1>
+    <hr class="mb-2">
+    <div class="cards-container">
+        {{range .Site.Taxonomies.categories.avenida}}
+        {{$image := .Page.Resources.GetMatch "images/*"}}
+        <a href="{{.Page.Permalink}}" class="card">
+            <img src="{{$image.Permalink}}" alt="" srcset="">
+            <p class="title pt-2 text-center pb-1">{{.Title}}</p>
+            <p class="small-text pt-1">{{.Page.Param "address"}}</p>
+            <p class="small-text pb-1">{{.Page.Param "city"}}</p>
+        </a>
+    {{end}}
+    </div>
+</div>
+{{end}}

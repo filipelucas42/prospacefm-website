@@ -1,0 +1,36 @@
+<footer style="background-image: url('/images/footer.png');" class="container-fluid">
+    <div class="footer-item">
+        <h1 class="title">{{.Site.Param "footer.company"}}</h1>
+        <p>{{.Site.Param "footer.prospace"}}</p>
+    </div>
+    <div class="footer-item">
+        <h1 class="title">Membro de</h1>
+        <ul>
+            {{range .Site.Param "footer.member"}}
+            {{if (index . 1)}}
+                <li><a href="{{index . 1}}" target="_blank">{{index . 0}}</a></li>
+            {{else}}
+                <li>{{index . 0}}</li>
+            {{end}}
+
+            {{end}}
+        </ul>
+    </div>
+    <div class="footer-item">
+        <h1 class="title">Presença</h1>
+        <ul>
+            {{range .Site.Param "footer.presence"}}
+
+                <li>{{.}}</li>
+            {{end}}
+        </ul>
+    </div>
+    <div class="footer-item">
+        <h1 class="title">Contactos</h1>
+        <ul>
+            {{range .Site.Param "footer.contacts"}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+    </div>
+</footer>
